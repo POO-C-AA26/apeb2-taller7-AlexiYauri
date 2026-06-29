@@ -89,3 +89,23 @@ public class Problema_03_EjecutorMensaje {
         mensaje2.visualizarMensaje();
     }
 }
+
+/**
+ * run:
+------------------
+Enviando mensaje...
+Mensaje Enviado...
+De: Telefono{numeroTelefono=0990037615, nombre=Alexi}
+Para: Telefono{numeroTelefono=0990037615, nombre=Diana}
+Tipo: Mensaje de Texto (SMS)
+Contenido: Hola que tal
+------------------
+Enviando mensaje...
+Mensaje Enviado...
+De: Telefono{numeroTelefono=0990037615, nombre=Alexi}
+Para: Telefono{numeroTelefono=0990037615, nombre=Diana}
+Tipo: Mensaje de imagen MMS
+Nombre de Fichero: diagrama_uml_herencia.png
+BUILD SUCCESSFUL (total time: 0 seconds)
+
+ */

@@ -32,16 +32,16 @@ class Trabajador{
     public double calcularSalario(){
         return 0.0;
     }
+    public void mostrarResumen(Trabajador t){
+        System.out.println(t.toString());
+        System.out.printf("Sueldo final de mes: $%.2f\n", t.calcularSalario());
+        System.out.println("-------------------------------------------------------------------");
+    }
     @Override
     public String toString() {
         String nombreJefe = (jefe != null) ? jefe.nombres_Apellidos : "Ninguno (Es el Gerente)";
         return "Trabajador{" + "nombres_Apellidos=" + nombres_Apellidos + ", "
                 + "direccion=" + direccion + ", dni=" + dni + ", jefe=" + jefe + '}';
-    }
-    public void mostrarResumen(Trabajador t){
-        System.out.println(t.toString());
-        System.out.printf("Sueldo final de mes: $%.2f\n", t.calcularSalario());
-        System.out.println("-------------------------------------------------------------------");
     }
 }
 class Jefe extends Trabajador{
@@ -53,6 +53,12 @@ class Jefe extends Trabajador{
     public double calcularSalario(){
         return this.sueldoFijo;
     }   
+
+    @Override
+    public String toString() {
+        return "Jefe{" + "sueldoFijo=" + sueldoFijo + '}'+super.toString();
+    }
+    
 }
 class TrabajadorFijo extends Trabajador{ 
     public double salarioFijoM;
@@ -62,19 +68,32 @@ class TrabajadorFijo extends Trabajador{
     }
     public double calcularSalario(){
         return this.salarioFijoM;
-    }        
+    }
+
+    @Override
+    public String toString() {
+        return "TrabajadorFijo{" + "salarioFijoM=" + salarioFijoM + '}'+super.toString();
+    }
+    
 }
+
 class Comisionistas extends Trabajador{
     public int ventas;
     public double comision;
     public Comisionistas(int ventas, double comision, String nombres_Apellidos, String direccion, String dni, Jefe jefe) {
         super(nombres_Apellidos, direccion, dni, jefe);
-        this.ventas = 0;
+        this.ventas = ventas;
         this.comision = comision;
     }  
     public double calcularSalario(){
         return this.ventas*(this.comision/100);
     }        
+
+    @Override
+    public String toString() {
+        return "Comisionistas{" + "ventas=" + ventas + ", comision=" + comision + '}'+super.toString();
+    }
+    
 }
 class TrabajadorHoras extends Trabajador{
     public int horas;
@@ -86,15 +105,22 @@ class TrabajadorHoras extends Trabajador{
         this.precioHora_Normal = precioHora_Normal;
         this.precioHora_Extra = precioHora_Extra;
     }   
-    public double calcularNomina() {
+    public double calcularSalario() {
         if (this.horas <= 40) {
             return this.horas * this.precioHora_Normal;
         } else {
             int horasNormales = 40;
             int horasExtras = this.horas - 40;
-            return (horasNormales * this.horas) + (horasExtras * this.precioHora_Extra);
+            return (horasNormales * this.precioHora_Normal) + (horasExtras * this.precioHora_Extra);
         }
     }
+
+    @Override
+    public String toString() {
+        return "TrabajadorHoras{" + "horas=" + horas + ", precioHora_Normal=" +
+                precioHora_Normal + ", precioHora_Extra=" + precioHora_Extra + '}'+super.toString();
+    }
+    
 }
 public class Problema_04_EjecutorTrabajador {
     public static void main(String[] args) {
@@ -113,3 +139,20 @@ public class Problema_04_EjecutorTrabajador {
     }
 }
 
+/**
+ * run:
+Jefe{sueldoFijo=540.0}Trabajador{nombres_Apellidos=Alexi Yauri, direccion=Santiago Fernandez, dni=1106057513, jefe=null}
+Sueldo final de mes: $540,00
+-------------------------------------------------------------------
+TrabajadorFijo{salarioFijoM=540.0}Trabajador{nombres_Apellidos=Pedro Cueva, direccion=AV de los Paltas, dni=1105047518, jefe=Jefe{sueldoFijo=540.0}Trabajador{nombres_Apellidos=Alexi Yauri, direccion=Santiago Fernandez, dni=1106057513, jefe=null}}
+Sueldo final de mes: $540,00
+-------------------------------------------------------------------
+Comisionistas{ventas=150, comision=10.0}Trabajador{nombres_Apellidos=Diana Espinoza, direccion=San Sebasti�n, dni=1107778882, jefe=Jefe{sueldoFijo=540.0}Trabajador{nombres_Apellidos=Alexi Yauri, direccion=Santiago Fernandez, dni=1106057513, jefe=null}}
+Sueldo final de mes: $15,00
+-------------------------------------------------------------------
+TrabajadorHoras{horas=40, precioHora_Normal=20.0, precioHora_Extra=25.0}Trabajador{nombres_Apellidos=Adri�n Uchuari, direccion=El Sagrario, dni=1109990003, jefe=Jefe{sueldoFijo=540.0}Trabajador{nombres_Apellidos=Alexi Yauri, direccion=Santiago Fernandez, dni=1106057513, jefe=null}}
+Sueldo final de mes: $800,00
+-------------------------------------------------------------------
+BUILD SUCCESSFUL (total time: 0 seconds)
+
+ */
