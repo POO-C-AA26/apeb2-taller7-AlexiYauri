@@ -75,7 +75,7 @@ class VHS extends Soporte{
         return "VHS{" + "idioma=" + idioma + '}'+super.toString();
     }
 }
-public class Problema_01_EjecutorVideoClub {
+public class Problema_02_EjecutorVideoClub {
     public static void main(String[] args) {
         Pelicula peli1 = new Pelicula("El Mundial","Enrique",2026);
         String idiomas[] = {"Espaniol","Ingles"};
