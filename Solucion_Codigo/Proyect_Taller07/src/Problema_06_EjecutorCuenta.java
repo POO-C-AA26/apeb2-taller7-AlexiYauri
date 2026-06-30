@@ -16,7 +16,7 @@ El banco ofrece a sus clientes dos tipos de cuentas, una de CHEQUES y una de
 * banco está pensando en implementar una cuenta PLATINO que viene siendo similar
 * a los otros dos tipos anteriores de cuentas bancarias, ésta tiene el interés del
 * 10%, sin cargos ni castigos por sobregiro.
- * @author Usuario iTC
+ * @author Alexi Yauri
  * @version 1.0
  */
 class Cuentas{

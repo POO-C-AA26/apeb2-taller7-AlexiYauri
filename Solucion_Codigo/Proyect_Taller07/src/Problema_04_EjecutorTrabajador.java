@@ -11,7 +11,7 @@
  * obligatoriamente un jefe (exceptuando los jefes que no tienen ninguno). El 
  * programa debe permitir dar de alta a trabajadores, así como fijar horas o 
  * ventas realizadas e imprimir la nómina correspondiente al final de mes.
- * @author Usuario iTC
+ * @author Alexi Yauri
  * @version 1.0
  */
 class Trabajador{

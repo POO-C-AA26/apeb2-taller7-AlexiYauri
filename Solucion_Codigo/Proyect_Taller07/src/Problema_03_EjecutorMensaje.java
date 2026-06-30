@@ -11,7 +11,7 @@
  * obligatoriamente por un número de móvil, y opcionalmente se podrá guardar 
  * información sobre su nombre. Además, los métodos enviarMensaje y visualizarMensaje
  * deben estar definidos.
- * @author Usuario iTC
+ * @author Alexi Yauri
  * @version 1.0
  */
 class Telefono{

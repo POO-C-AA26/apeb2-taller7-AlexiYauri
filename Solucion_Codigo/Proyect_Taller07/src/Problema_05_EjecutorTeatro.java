@@ -30,7 +30,7 @@ Entradas reducidas (para estudiantes o pensionistas): su precio tiene una rebaja
 Entradas abonado: su precio es el precio para abonados de la zona elegida.
 La interacción entre el vendedor y la aplicación es la descrita en los siguientes
 * casos de usos.
- * @author Usuario iTC
+ * @author Alexi Yauri
  * @version 1.0
  */
 class Zona{
